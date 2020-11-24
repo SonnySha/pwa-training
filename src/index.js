@@ -1,18 +1,18 @@
 import Api from './api'
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   // TODO : Installer le service worker
-  
+
   // Script pour le chargement des news via The Guardian API
   // http://open-platform.theguardian.com/documentation/
-  
+
   const container = document.getElementById('news-container');
-  
+
   // On s'assure qu'il y a bien un container
   if (container) {
     // Ajout d'un loader le temps de charger les données
     container.innerHTML = '<div class="loader"><div class="mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active"></div></div>';
-    
+
     Api.getAll().then((res) => {
       // On vide le container pour enlever le loader, on a ajouter les données à la place
       container.innerHTML = '';
@@ -37,4 +37,20 @@ window.addEventListener('load', function() {
       })
     })
   }
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js').then(registration => {
+      // Le Service Worker est déclaré !
+      console.log('Service Worker déclaré !');
+    })
+      .catch(error => {
+        // Il y a eu un problème
+        console.error('Erreur: ', error);
+      });
+  }
+
+
+
+
+
 });

@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "pwacour",
+    "pwacour": "pwacour"
+  }
+}

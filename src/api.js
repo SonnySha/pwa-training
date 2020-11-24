@@ -1,7 +1,7 @@
 import 'whatwg-fetch'
 
 export const API_URL = 'https://content.guardianapis.com/search'
-const API_KEY = '38dac9cb-d687-4d88-909c-942ce5868e83';
+const API_KEY = 'test';
 
 class Api {
   /**
